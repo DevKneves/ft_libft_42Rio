@@ -6,10 +6,11 @@
 /*   By: kneves <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:25:44 by kneves            #+#    #+#             */
-/*   Updated: 2023/11/07 15:36:16 by kneves           ###   ########.fr       */
+/*   Updated: 2023/11/08 11:31:50 by kneves           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "libft.h"
 
 static size_t	ft_substring(const char *s, char c)
@@ -58,3 +59,20 @@ char	**ft_split(const char *s, char c)
 	substring[i] = 0;
 	return (substring);
 }
+
+int main(void)
+{
+    char **result;
+    int i = 0;
+
+    result = ft_split("casa, do, Biscoito", ',');
+    while (result[i])
+    {
+        printf("%s\n", result[i]);
+        free(result[i]);
+        i++;
+    }
+    free(result);
+    return (0);
+}
+
